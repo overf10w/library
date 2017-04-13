@@ -2,7 +2,7 @@ var express = require('express');
 
 var app = express();
 
-var port = 5000;
+var port = process.env.PORT || 5000;
 
 // set public directory as static directory
 // whatever we put here, will be used by express first, before it does an. else
