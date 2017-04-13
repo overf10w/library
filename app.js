@@ -8,11 +8,13 @@ var port = process.env.PORT || 5000;
 // whatever we put here, will be used by express first, before it does an. else
 app.use(express.static('public'));
 
-// src/views/index.html -> index.html
-app.use(express.static('src/views'));
+// set dir in which views are stored
+app.set('views', './src/views');
+
+app.set('view engine', 'jade');
 
 app.get('/', function(req, res) {
-    res.send('Hello World');
+    res.render('index');
 });
 
 app.get('/books', function(req, res) {
