@@ -14,6 +14,7 @@ var nav = [
     }
 ];
 var bookRouter = require('./src/routes/bookRoutes')(nav);
+var adminRouter = require('./src/routes/adminRoutes')(nav);
 
 // set public directory as static directory
 // whatever we put here, will be used by express first, before it does an. else
@@ -24,6 +25,7 @@ app.set('view engine', 'ejs');
 
 // for /Books use bookRouter
 app.use('/Books', bookRouter);
+app.use('/Admin', adminRouter);
 
 app.get('/', function(req, res) {
             res.render('index', {
